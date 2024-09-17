@@ -24,8 +24,15 @@ int main() {
     }
 
     // Execute SQL query
-    if (mysql_query(conn, "SELECT * FROM questions")) { // Change 'your_table' to your table name
-        cerr << "SELECT * FROM your_table failed. Error: " << mysql_error(conn) << endl;
+    int qno;
+    cout << "Enter Qno: ";
+    cin >> qno;
+
+    string query = "SELECT * FROM questions WHERE Qno = " + to_string(qno);
+    cout << "Executing query: " << query << endl;
+
+    if (mysql_query(conn, query.c_str())) {
+        cerr << "Error executing query: " << mysql_error(conn) << endl;
         return EXIT_FAILURE;
     }
 
