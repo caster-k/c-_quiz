@@ -33,7 +33,7 @@ int main() {
     int c = 0;
      while (c < 5)
     {
-        int r = rand() % 10;
+        int r = (rand() % 5)+1;
         int flag = 0;
         for (int j = 0; j < 5; j++)
         {
@@ -51,12 +51,9 @@ int main() {
         if(flag == 0){
         qno[c] = r;
         // qno = unq[c];
-        
-        
         c++;
-        
-    }
         }
+    }
     
     for (int i = 0; i < 5; i++){
 
@@ -86,7 +83,9 @@ int main() {
     cout << endl;
     int j = 0,k=59;
     // Print each row of the result set
-   while ((row = mysql_fetch_row(res))) {
+    (row = mysql_fetch_row(res));
+   while (k>=0) {
+    
     system("clear");
         cout << "Question:"<< qno[j]<<" "<< (row[1] ? row[1] : "NULL") << endl; // Assuming column 1 contains the question
         // cout << "Options:" << endl;
@@ -95,16 +94,19 @@ int main() {
         cout << "C. " << (row[4] ? row[4] : "NULL") << endl; // Assuming column 4 contains Option C
         cout << "D. " << (row[5] ? row[5] : "NULL") << endl; // Assuming column 5 contains Option D
         cout << " \t\t\t\t\t\t\t\t\t\t\t\t\t\t\tseconds remaining: "<<k+1 << endl;
+
+        // cout<<"The value of k is "<<k<<endl;
         k--;
         if(k == 0){
             j++;
+            // cout<<j<<" is the value of j"<<endl;
         }
         this_thread::sleep_for(chrono::seconds(1));
-    }
-
+        cout<<"Hello world1;"<<endl;
+    }}
     // Cleanup
     mysql_free_result(res);
     mysql_close(conn);
 
     return EXIT_SUCCESS;
-}}
+}
