@@ -102,7 +102,9 @@ int main() {
         this_thread::sleep_for(chrono::seconds(1));
         if (k == 0 || option != ' ') {
             j++;  // Move to the next question
+            this_thread::sleep_for(chrono::seconds(3));
             cout << "You chose: " << option << endl;
+            option = ' ';
             break;  // Break the loop (you can handle it differently)
         }
     }
