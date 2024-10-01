@@ -139,13 +139,14 @@ int main() {
 
             if (k == 0) {
                 cout << "Time's up for this question!" << endl;
-            }
-            
+            }  
         }
 
         mysql_free_result(res);
         mysql_free_result(res_a);
     }
+    system("clear");
+    cout << "Quiz completed!" << endl;
 
     mysql_close(conn);
     inputThread.join(); // Wait for the input thread to finish
