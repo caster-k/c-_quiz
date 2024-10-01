@@ -114,7 +114,7 @@ int main() {
             cout << "B. " << (row[3] ? row[3] : "NULL") << endl; 
             cout << "C. " << (row[4] ? row[4] : "NULL") << endl; 
             cout << "D. " << (row[5] ? row[5] : "NULL") << endl;
-            cout << " \t\t\t\t\t\t\t\t\t\t\t\t\t\t\tseconds remaining: "<<k << endl;
+            cout << " \t\t\t\t\t\t\t\t\t\t\t\t\t Seconds remaining: "<<k << endl;
             this_thread::sleep_for(chrono::seconds(1));
 
             // Handle user input every 20 seconds
