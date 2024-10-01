@@ -1,21 +1,25 @@
 #include <mysql/mysql.h>
 #include <iostream>
 #include <iomanip>
-#include<time.h>
-#include<cstdlib>
 #include <chrono>
 #include <thread>
+#include <atomic>
+#include <cstdlib>
+#include <ctime>
+#include <cstring> 
 
 using namespace std;
 
 int main() {
     MYSQL *conn;
+    MYSQL *conn_a;
     MYSQL_RES *res;
     MYSQL_ROW row;
-
+    MYSQL_RES *res_a;
+    MYSQL_ROW row_a;
     const char *server = "localhost"; // Change to your server address
     const char *user = "root"; // Change to your MySQL username
-    const char *password = "Sunta@123..."; // Change to your MySQL password
+    const char *password = ".."; // Change to your MySQL password
     const char *database = "QUIZ"; // Change to your database name
 
     // Initialize MySQL connection
@@ -26,6 +30,7 @@ int main() {
         cout << "mysql_real_connect() failed\n";
         return EXIT_FAILURE;
     }
+    conn_a = conn;
     // Execute SQL query
     srand(time(0));
     int qno[5]={0};
@@ -52,28 +57,43 @@ int main() {
 
     int j = 0;
     
-    for (int i = 0; i < 5; i++){
-        string query = "SELECT * FROM questions WHERE Qno = " + to_string(qno[i]);
-        cout << "Executing query: " << query << endl;
-        if (mysql_query(conn, query.c_str())) {
+    for (int i = 0; i < 5; i++) {
+    string query = "SELECT * FROM questions WHERE Qno = " + to_string(qno[i]);
+    cout << "Executing query: " << query << endl;
+    
+    if (mysql_query(conn, query.c_str())) {
         cout << "Error executing query: " << mysql_error(conn) << endl;
         return EXIT_FAILURE;
-        }
-    // Store the result set
+    }
+
+    string query_a = "SELECT * FROM answers WHERE Qno = " + to_string(qno[i]);
+    cout << "Executing query: " << query_a << endl;
+    if (mysql_query(conn, query_a.c_str())) {
+        cout << "Error executing query: " << mysql_error(conn) << endl;
+        return EXIT_FAILURE;
+    }
+
+    // Store the result set for questions and answers
     res = mysql_store_result(conn);
-    if (res == NULL) {
+    res_a = mysql_store_result(conn);
+
+    if (res == NULL || res_a == NULL) {
         cout << "mysql_store_result() failed. Error: " << mysql_error(conn) << endl;
         return EXIT_FAILURE;
     }
 
-    cout << endl;
+    // Fetch the rows for questions and answers
+    row = mysql_fetch_row(res);
+    row_a = mysql_fetch_row(res_a);
+    // cout<<endl<<"Yo chalenaaaaaaaaaa"<<endl;
 
     int k=19;
     // Print each row of the result set
     (row = mysql_fetch_row(res));
+    (row_a = mysql_fetch_row(res_a));
    while (k>=0) {
     
-        system("clear");
+        // system("clear");
         cout << "Question:"<< qno[j]<<" "<< (row[1] ? row[1] : "NULL") << endl; // Assuming column 1 contains the question
         // cout << "Options:" << endl;
         cout << "A. " << (row[2] ? row[2] : "NULL") << endl; // Assuming column 2 contains Option A
@@ -95,7 +115,9 @@ int main() {
             if(option == 'N' || option == 'n'){
                 continue;
             }
-        //     else if(option == )
+            else if (strcmp(row_a[1], string(1, option).c_str()) == 0) {
+                cout << "Your answer is correct" << endl;
+            }
         }
         this_thread::sleep_for(chrono::seconds(1));
     }
@@ -104,7 +126,9 @@ int main() {
     }
     // Cleanup
     mysql_free_result(res);
+    mysql_free_result(res_a);
     mysql_close(conn);
+    mysql_close(conn_a);
 
     return EXIT_SUCCESS;
 }
