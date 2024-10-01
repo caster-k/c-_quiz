@@ -16,7 +16,7 @@ atomic<char> option(' ');
 void inputHandler() {
     while (true) {
         char input;
-        this_thread::sleep_for(chrono::seconds(3));
+        // this_thread::sleep_for(chrono::seconds(3));
         cin >> input;
         if (input >= 'a' && input <= 'z') {
             input -= 32; // Convert lowercase to uppercase
