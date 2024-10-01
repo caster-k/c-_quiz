@@ -7,6 +7,7 @@
 #include <ctime>
 #include <cstring> 
 
+// g++ Final_Quiz_Without_MultiThread.cpp -o quiz -lmysqlclient && ./quiz
 using namespace std;
 
 int main() {
