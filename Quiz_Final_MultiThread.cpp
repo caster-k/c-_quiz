@@ -8,6 +8,7 @@
 #include <cstring>
 #include <atomic>
 
+// g++ Quiz_Final_MultiThread.cpp -o quiz -lmysqlclient && ./quiz
 using namespace std;
 
 // Shared atomic variable for user input
