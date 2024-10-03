@@ -47,30 +47,12 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    srand(time(0));
-    int qno[5] = {0};
-    int c = 0;
-
-    while (c < 5) {
-        int r = (rand() % 5) + 1;
-        bool exists = false;
-        for (int j = 0; j < c; j++) {
-            if (qno[j] == r) {
-                exists = true;
-                break;
-            }
-        }
-        if (!exists) {
-            qno[c++] = r;
-        }
-    }
-
     // Start input thread
     thread inputThread(inputHandler);
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i <= 45; i++) {
         // Fetch question
-        string query = "SELECT * FROM questions WHERE Qno = " + to_string(qno[i]);
+        string query = "SELECT * FROM questions WHERE Qno = " + to_string(i);
         if (mysql_query(conn, query.c_str())) {
             cout << "Error executing query: " << mysql_error(conn) << endl;
             return EXIT_FAILURE;
@@ -84,13 +66,13 @@ int main() {
 
         row = mysql_fetch_row(res);
         if (row == NULL) {
-            cout << "No question found for Qno: " << qno[i] << endl;
+            cout << "No question found for Qno: " << i << endl;
             mysql_free_result(res);
             continue; // Skip to next question if none found
         }
 
         // Fetch answers
-        string query_a = "SELECT * FROM answers WHERE Qno = " + to_string(qno[i]);
+        string query_a = "SELECT * FROM answers WHERE Qno = " + to_string(i);
         if (mysql_query(conn, query_a.c_str())) {
             cout << "Error executing query: " << mysql_error(conn) << endl;
             mysql_free_result(res);
@@ -106,7 +88,7 @@ int main() {
 
         row_a = mysql_fetch_row(res_a);
         if (row_a == NULL) {
-            cout << "No answers found for Qno: " << qno[i] << endl;
+            cout << "No answers found for Qno: " << i << endl;
             mysql_free_result(res);
             mysql_free_result(res_a);
             continue; // Skip to next question if none found
@@ -115,7 +97,7 @@ int main() {
         // Countdown and input handling
         for (int k = 75; k >= 0; k--) {
             system("clear");
-            cout << "Question: " << qno[i] << " " << (row[1] ? row[1] : "NULL") << endl;
+            cout << "Question " << i << ":  " << (row[1] ? row[1] : "NULL") << endl;
             cout << "a. " << (row[2] ? row[2] : "NULL") << endl; 
             cout << "b. " << (row[3] ? row[3] : "NULL") << endl; 
             cout << "c. " << (row[4] ? row[4] : "NULL") << endl; 
@@ -129,10 +111,10 @@ int main() {
                 cout << "You chose: " << option << endl;
                 if (strcmp(row_a[1], string(1, option).c_str()) == 0) {
                     cout << "Your answer is correct!" << endl;
-                    this_thread::sleep_for(chrono::seconds(3));
+                    this_thread::sleep_for(chrono::seconds(5));
                 } else {
                     cout << "Your answer is incorrect!" << endl;
-                    this_thread::sleep_for(chrono::seconds(3));
+                    this_thread::sleep_for(chrono::seconds(5));
                 }
                 option = ' '; // Reset option for next question
                 break;
@@ -141,7 +123,7 @@ int main() {
             if (k == 0) {
                 for (int kk = 35; kk >= 0; kk--) {
             system("clear");
-            cout << "Question: " << qno[i] << " " << (row[1] ? row[1] : "NULL") << endl;
+            cout << "Question: " << i << " " << (row[1] ? row[1] : "NULL") << endl;
             cout << "a. " << (row[2] ? row[2] : "NULL") << endl; 
             cout << "b. " << (row[3] ? row[3] : "NULL") << endl; 
             cout << "c. " << (row[4] ? row[4] : "NULL") << endl; 
@@ -156,11 +138,11 @@ int main() {
                 cout << "You chose: " << option << endl;
                 if (strcmp(row_a[1], string(1, option).c_str()) == 0) {
                     cout << "Your answer is correct!" << endl;
-                    this_thread::sleep_for(chrono::seconds(3));
+                    this_thread::sleep_for(chrono::seconds(5));
                 } 
                 else {
                     cout << "Your answer is incorrect!" << endl;
-                    this_thread::sleep_for(chrono::seconds(3));
+                    this_thread::sleep_for(chrono::seconds(5));
                 }
                 option = ' '; // Reset option for next question
                 break;
