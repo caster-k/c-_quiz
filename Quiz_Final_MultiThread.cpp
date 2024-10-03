@@ -19,8 +19,8 @@ void inputHandler() {
         char input;
         // this_thread::sleep_for(chrono::seconds(3));
         cin >> input;
-        if (input >= 'a' && input <= 'z') {
-            input -= 32; // Convert lowercase to uppercase
+        if (input >= 'A' && input <= 'Z') {
+            input += 32; // Convert to lowercase
         }
         option = input;
         
@@ -113,14 +113,14 @@ int main() {
         }
 
         // Countdown and input handling
-        for (int k = 60; k >= 0; k--) {
+        for (int k = 75; k >= 0; k--) {
             system("clear");
             cout << "Question: " << qno[i] << " " << (row[1] ? row[1] : "NULL") << endl;
-            cout << "A. " << (row[2] ? row[2] : "NULL") << endl; 
-            cout << "B. " << (row[3] ? row[3] : "NULL") << endl; 
-            cout << "C. " << (row[4] ? row[4] : "NULL") << endl; 
-            cout << "D. " << (row[5] ? row[5] : "NULL") << endl;
-            cout << "Enter your choice (A/B/C/D): ";
+            cout << "a. " << (row[2] ? row[2] : "NULL") << endl; 
+            cout << "b. " << (row[3] ? row[3] : "NULL") << endl; 
+            cout << "c. " << (row[4] ? row[4] : "NULL") << endl; 
+            cout << "d. " << (row[5] ? row[5] : "NULL") << endl;
+            cout << "Enter your choice (a/b/c/d): ";
             cout << "\t\t\t seconds remaining: " << k << endl;
 
             this_thread::sleep_for(chrono::seconds(1));
@@ -142,11 +142,11 @@ int main() {
                 for (int kk = 35; kk >= 0; kk--) {
             system("clear");
             cout << "Question: " << qno[i] << " " << (row[1] ? row[1] : "NULL") << endl;
-            cout << "A. " << (row[2] ? row[2] : "NULL") << endl; 
-            cout << "B. " << (row[3] ? row[3] : "NULL") << endl; 
-            cout << "C. " << (row[4] ? row[4] : "NULL") << endl; 
-            cout << "D. " << (row[5] ? row[5] : "NULL") << endl;
-            cout << "Enter your choice (A/B/C/D): ";
+            cout << "a. " << (row[2] ? row[2] : "NULL") << endl; 
+            cout << "b. " << (row[3] ? row[3] : "NULL") << endl; 
+            cout << "c. " << (row[4] ? row[4] : "NULL") << endl; 
+            cout << "d. " << (row[5] ? row[5] : "NULL") << endl;
+            cout << "Enter your choice (a/b/c/d): ";
             cout << "\t\t\t seconds remaining: " << kk << endl;
             cout << "Time's up for this question for the selected group!" << endl;
 
