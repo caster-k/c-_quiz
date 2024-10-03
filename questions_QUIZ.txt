@@ -1,0 +1,269 @@
+1. A block is enclosed inside what in C++?
+a. [ ]
+b. { }
+c. ( )
+d. None of the above
+
+2. The extension name of a C++ source code file is
+a. C
+b. cpp
+c. c++
+d. Cpp
+
+3. Which of the following is not a primitive datatype?
+a. int
+b. float
+c. bool
+d. pointer
+
+4. What is correct way of initializing a variable?
+a. int int;
+b. Int var;
+c. int main;
+d. int var;
+
+5. Which data type is best suited for storing a decimal number in C++?
+a. int
+b. float
+c. bool
+d. char
+
+6. What is the size of long int in C++?
+a. 4 bits
+b. 4 bytes
+c. 8 bits
+d. 8 bytes
+
+7. Suppose x=10 and y=10 what is x after evaluating the expression (y >= 10) || (x++ > 10).
+a. Error
+b. 11
+c. 10
+d. None of the above
+
+8. Which of the following is correct way to define a function in C++?
+a. void function { }
+b. Define function( ) { }
+c. void function( ) { }
+d. void function( );
+
+9. Which of the following is true about the main() function?
+a. It can have any name
+b. It is not required in every C++ program
+c. It is the entry point of a C++ program
+d. It cannot return a value
+
+10. The signature of the main function in C++ is what?
+a. int main()
+b. int main(int args, char* argu)
+c. Both a and b
+d. None of the above
+
+11.Which keyword is used to return a value from a function?
+a. yield
+b. Exit
+c. break
+d. return
+
+12.What is the output of the expression cout<<"'A' + 32"<<endl; in C++?
+a. a
+b. 97
+c. 'A' + 32
+d. None of the above
+
+13.What is cout in C++?
+a. Function
+b. Object
+c. Variable
+d. Macro
+
+14.If you declare an array double list[] = {3.4, 2.0, 3.5, 5.5}, list[sizeof(list)] is
+a. 5.5
+b. 3.4
+c. 3.5
+d. Error
+
+15.When you pass an array to a function, the function receives what?
+a. The value of the first index of an array
+b. The address of the first index of an array
+c. The entire array by value
+d. The size of the array
+
+16.A function is stored in which memory?
+a. Stack
+b. Global
+c. Heap
+d. Static
+
+17.Which of the following statements is used to end a loop immediately?
+a. exit
+b. break
+c. continue
+d. return
+
+18.Which loop checks the condition after executing the loop body at least once?
+a. for
+b. while
+c. do-while
+d. foreach
+
+19.Which of the following correctly declares a constant variable in C++?
+a. Constant int num = 10;
+b. Final int num = 10;
+c. Const int num = 10;
+d. const int num = 10;
+
+20.What is the correct way to declare a function in C++ that returns an integer?
+a. function int add(int a, int b)
+b. int add(int a, int b)
+c. add(int a, int b)
+d. void add(int a, int b)
+
+21.What is the index of the first element of an array in C++?
+a. 0
+b. 1
+c. -1
+d. Depends on the array size
+
+22.How do you initialize an array of size 5 with all elements set to zero?
+a. int arr[5] = 0;
+b. Int arr[5] = {0};
+c. int arr[5];
+d. int arr[5] = {0};
+
+23.What is the correct syntax for a for loop in C++?
+a. for (int i; i <10; i++)
+b. for (int i = 0; i < 10; i++)
+c. for (i = 0; i < 10: i++)
+d. for i = 0 to 10
+
+24.What is the wrong way for writing the variable name?
+a. int int_value;
+b. int Int_value;
+c. int 1_value;
+d. int value;
+
+25.Which of the following operators is used to access a pointer to a structure in C++?
+a. .
+b. *
+c. ->
+d. &
+
+26.Which of the following data types is used to store a list of characters in C++?
+a. char[]
+b. string
+c. Both a and b
+d. None of the above
+
+27.In a C++, how are members of the structure accessed?
+a. Using the dot (.) operator
+b. Using the arrow (->) operator
+c. Using the (&) operator
+d. Both a and b
+
+28.What is the output of the expression 5 % 2 in C++?
+a. 1
+b. 2
+c. 0
+d. 5
+
+29.What does the continue statement do in a loop in C++?
+a. Exits the loop
+b. Skips the rest of the current iteration and moves to the next iteration
+c. Restarts the loop from the beginning
+d. Skips the entire loop body
+
+30.Which of the following is true about functions in C++?
+a. Functions can return more than one value
+b. Functions can only be called once
+c. Functions can return only one value
+d. Function must always have a return type of int
+
+31.What is the purpose of the return 0; statement in the main( ) function in C++?
+a. Indicates the program has executed successfully
+b. Terminates the program with an error
+c. It is mandatory in every program
+d. It restarts the program
+
+32.What is the default value of an uninitialized local variable in C++?
+a. 0
+b. Garbage value
+c. NULL
+d. Undefined
+
+33.What is a structure in C++?
+a. A collection of similar data types
+b. A collection of different data types grouped together
+c. A predefined object in the library
+d. A class with no methods
+
+34.What is the scope of a variable declared inside a function in C++?
+a. Global
+b. Local to the function
+c. Accessible in other functions
+d. Static
+
+35.Which of the following is valid C++ array declaration?
+a. int arr[5] = {1, 2, 4};
+b. int arr[ ] = 5;
+c. arr[5] = {1, 2, 4};
+d. int arr(5) = {1, 2, 4};
+
+36.What will the “cout << sizeof(float);” statement in C++ print?
+a. 2
+b. 4
+c. 8
+d. Depends on the machine
+
+37.Which of the following is correct for declaring a character array in C++?
+a. char str[ ] = "Hello";
+b. char str = 'Hello';
+c. char str[2] = "Hello";
+d. None of the above
+
+38.What will the statement “cout << 5 / 2 << endl;” in C++ print?
+a. 2.5
+b. 2
+c. 3
+d. 1
+
+39.Which of the following statements is correct about pointers?
+a. A pointer stores the value of a variable
+b. A pointer stores the memory address of another variable
+c. A pointer can only point to an int data type
+d. A pointer is a constant variable
+
+40.A structure is declared using which keyword in C++?
+a. class
+b. struct
+c. typedef
+d. namespace
+
+41.What is the role of the void keyboard in a function declaration?
+a. It returns a null value
+b. It specifies that the function does not return a value
+c. It makes the function private
+d. It specifies that the function accepts any data type
+
+42.What is the correct syntax for a function declaration in C++?
+a. int myFunction(int a);
+b. int myFunction(int a, int b);
+c. int myFunction();
+d. All of the above
+
+43.What is function prototype in C++?
+a. The definition of the function
+b. The declaration of the function without its body
+c. The return value of the function
+d. The execution of the function
+
+44.What is a null pointer in C++?
+a. A pointer that does not point to any valid memory location
+b. A pointer with a value of 0
+c. A pointer to the first element in an array
+d. A pointer that stores a reference to a function
+
+45.Which keyword is used to define a constant variable in C++?
+a. final
+b. define
+c. const
+d. constant
