@@ -121,7 +121,7 @@ int main() {
             cout << "C. " << (row[4] ? row[4] : "NULL") << endl; 
             cout << "D. " << (row[5] ? row[5] : "NULL") << endl;
             cout << "Enter your choice (A/B/C/D): ";
-            cout << "\t\t\t\t\tseconds remaining: " << k << endl;
+            cout << "\t\t\t seconds remaining: " << k << endl;
 
             this_thread::sleep_for(chrono::seconds(1));
 
@@ -147,7 +147,7 @@ int main() {
             cout << "C. " << (row[4] ? row[4] : "NULL") << endl; 
             cout << "D. " << (row[5] ? row[5] : "NULL") << endl;
             cout << "Enter your choice (A/B/C/D): ";
-            cout << "\t\t\t\t\t seconds remaining: " << kk << endl;
+            cout << "\t\t\t seconds remaining: " << kk << endl;
             cout << "Time's up for this question for the selected group!" << endl;
 
             this_thread::sleep_for(chrono::seconds(1));
