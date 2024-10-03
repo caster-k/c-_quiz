@@ -121,7 +121,7 @@ int main() {
             cout << "C. " << (row[4] ? row[4] : "NULL") << endl; 
             cout << "D. " << (row[5] ? row[5] : "NULL") << endl;
             cout << "Enter your choice (A/B/C/D): ";
-            cout << "\t\tseconds remaining: " << k << endl;
+            cout << "\t\t\t\t\tseconds remaining: " << k << endl;
 
             this_thread::sleep_for(chrono::seconds(1));
 
@@ -139,9 +139,44 @@ int main() {
             }
 
             if (k == 0) {
-                cout << "Time's up for this question!" << endl;
+                for (int kk = 35; kk >= 0; kk--) {
+            system("clear");
+            cout << "Question: " << qno[i] << " " << (row[1] ? row[1] : "NULL") << endl;
+            cout << "A. " << (row[2] ? row[2] : "NULL") << endl; 
+            cout << "B. " << (row[3] ? row[3] : "NULL") << endl; 
+            cout << "C. " << (row[4] ? row[4] : "NULL") << endl; 
+            cout << "D. " << (row[5] ? row[5] : "NULL") << endl;
+            cout << "Enter your choice (A/B/C/D): ";
+            cout << "\t\t\t\t\t seconds remaining: " << kk << endl;
+            cout << "Time's up for this question for the selected group!" << endl;
+
+            this_thread::sleep_for(chrono::seconds(1));
+
+            if (option != ' ') {
+                cout << "You chose: " << option << endl;
+                if (strcmp(row_a[1], string(1, option).c_str()) == 0) {
+                    cout << "Your answer is correct!" << endl;
+                    this_thread::sleep_for(chrono::seconds(3));
+                } 
+                else {
+                    cout << "Your answer is incorrect!" << endl;
+                    this_thread::sleep_for(chrono::seconds(3));
+                }
+                option = ' '; // Reset option for next question
+                break;
+            }
+                
+            if(kk == 0){
+                cout<<"Time's for the second round!"<<endl;
+               
+                this_thread::sleep_for(chrono::seconds(660));//rest for 11 minutes for explanation and choose the correct answer
+            }
+                
             }  
-        }
+
+        }}
+
+        
 
         mysql_free_result(res);
         mysql_free_result(res_a);
